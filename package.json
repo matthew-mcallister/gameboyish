@@ -1,15 +1,12 @@
 {
   "name": "gameboyish",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
-  "dependencies": {
-    "react-scripts": "5.0.0"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "serve": "http-server -o -c-1 -p 9000 public"
   },
   "eslintConfig": {
     "extends": []
@@ -25,5 +22,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "build": {
+    "backend": "webpack",
+    "extensions": [
+      "typescript"
+    ]
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.1",
+    "http-server": "^14.1.0",
+    "rollup": "^2.70.1"
   }
 }

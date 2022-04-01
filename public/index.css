@@ -1,0 +1,8 @@
+body {
+  background-color: black;
+}
+
+canvas {
+  height: 100vh;
+  aspect-ratio: 160 / 144;
+}
