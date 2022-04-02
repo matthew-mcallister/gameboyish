@@ -22,7 +22,6 @@ export default class Renderer {
   }
 
   render() {
-    this.refresh()
     this.ctx.fillStyle = 'red'
     this.ctx.fillRect(4, 4, 152, 136)
     this.i += 1

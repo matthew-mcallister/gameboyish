@@ -1,0 +1,9 @@
+{
+  "assets": {
+    "car": {
+      "type": "sprite",
+      "offset": [-45, -37],
+      "src": "assets/car.png"
+    }
+  }
+}

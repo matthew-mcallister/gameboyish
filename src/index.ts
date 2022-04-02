@@ -1,4 +1,5 @@
 import Renderer from 'render'
+import World from 'world'
 
 let updates = 0
 
@@ -29,6 +30,8 @@ class Timer {
   }
 }
 
+const world = new World()
+
 async function mainLoop() {
   const canvas: HTMLCanvasElement = document.getElementById(
     'canvas'
@@ -38,18 +41,20 @@ async function mainLoop() {
   const renderer = new Renderer()
   const timer = new Timer(60)
 
-  function update() {
-    if (timer.tics == 0) {
-      // Sync timer
-      timer.reset()
-    }
+  function init() {
+    // Sync timer
+    timer.reset()
+    requestAnimationFrame(update)
+  }
 
+  function update() {
     updates += 1
     while (timer.advance()) {
-      // Advance game logic
+      world.update()
     }
 
-    renderer.render()
+    renderer.refresh()
+    world.draw(renderer)
 
     ctx.setTransform(canvas.width / 160, 0, 0, canvas.height / 144, 0, 0)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -58,7 +63,7 @@ async function mainLoop() {
     requestAnimationFrame(update)
   }
 
-  requestAnimationFrame(update)
+  requestAnimationFrame(init)
 }
 
 mainLoop()
