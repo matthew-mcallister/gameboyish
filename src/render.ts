@@ -4,15 +4,12 @@ export default class Renderer {
   ctx: CanvasRenderingContext2D
   i: number
 
-  constructor() {
-    let canvas = document.createElement('canvas')
-    canvas.width = 160
-    canvas.height = 144
-    canvas.style.display = 'none'
+  constructor(canvas: HTMLCanvasElement) {
     this.canvas = canvas
     this.i = 0
 
     this.ctx = canvas.getContext('2d')!
+    this.ctx.imageSmoothingEnabled = false
     this.ctx.save()
   }
 

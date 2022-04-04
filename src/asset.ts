@@ -1,6 +1,7 @@
+import { SpritesheetFont } from 'font'
 import Sprite from 'sprite'
 
-export type Asset = Sprite
+export type Asset = Sprite | SpritesheetFont
 
 async function loadAssets(manifestUrl: string) {
   const manifest = await (await fetch(manifestUrl)).json()
@@ -10,6 +11,9 @@ async function loadAssets(manifestUrl: string) {
     switch (dict.type) {
       case 'sprite':
         assets.set(name, Sprite.fromJson(dict))
+        break
+      case 'spritesheetfont':
+        assets.set(name, SpritesheetFont.fromJson(dict))
         break
       default:
         throw new Error(`Unknown asset type: ${dict.type}`)

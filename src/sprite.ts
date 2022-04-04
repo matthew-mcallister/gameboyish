@@ -12,7 +12,7 @@ export default class Sprite {
     this.offset = args.offset
   }
 
-  static fromJson(json: any) {
+  static fromJson(json: any): Sprite {
     return new Sprite(json)
   }
 

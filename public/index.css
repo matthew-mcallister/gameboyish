@@ -11,7 +11,7 @@ html {
 
 body {
   height: 99vh;
-  background-color: grey;
+  background-color: black;
 }
 
 .root {
@@ -43,4 +43,5 @@ body {
   padding-left: 0;
   padding-right: 0;
   display: block;
+  image-rendering: pixelated;
 }
